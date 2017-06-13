@@ -19,3 +19,12 @@ def make_migrations():
 
 def requirements():
     local('/home/ubuntu/.virtualenvs/code-test/bin/pip install -r requirements.txt ')
+
+
+def createsuperuser():
+    run_manage('createsuperuser')
+
+
+def load_data():
+    run_manage('flush')
+    run_manage('loaddata sample')

@@ -15,6 +15,9 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from episodes import views
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^episodes/(?P<pk>\d)', views.EpisodeDetail.as_view(), name='episode-detail'),
 ]

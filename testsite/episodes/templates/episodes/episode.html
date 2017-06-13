@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Episode {{object.title}}</title>
+</head>
+<body>
+    <h1>{{ object.title }}</h1>
+
+    <ol>
+        {% for reaction in reactions %}
+            <li>
+                <b>{{reaction.created_at}}</b> by {{reaction.user}}<br />
+                {% if reaction.content_type.name == 'image reaction' %}
+                    {{reaction.content_object.image.url}}
+                {% elif reaction.content_type.name == 'tweet reaction' %}
+                    {{reaction.content_object.text}}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
